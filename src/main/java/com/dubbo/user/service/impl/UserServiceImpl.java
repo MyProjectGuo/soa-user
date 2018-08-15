@@ -7,7 +7,7 @@ import com.dubbo.user.dao.UserMapper;
 import com.dubbo.user.model.User;
 import com.dubbo.user.service.UserService;
 
-@Service
+@Service(group="userService" ,version="1.0.0")
 public class UserServiceImpl implements UserService {
 
 	@Autowired
