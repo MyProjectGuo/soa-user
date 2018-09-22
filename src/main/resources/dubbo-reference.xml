@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="soa-user-dubbo-provider" owner="soa-user-dubbo-provider"/>
-    <dubbo:registry address="zookeeper://118.24.115.57:2181" check="false" subscribe="false"/>
+    <dubbo:registry address="${dubbo.registry.address}" check="false" subscribe="false"/>
     <dubbo:service interface="com.dubbo.user.service.UserService" ref="getUserById" timeout="5000" retries="0"/>
     <bean id="getUserById" class="com.dubbo.user.service.impl.UserServiceImpl" ></bean>
 </beans>

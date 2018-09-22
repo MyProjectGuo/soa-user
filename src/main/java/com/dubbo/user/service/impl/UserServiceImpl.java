@@ -1,6 +1,7 @@
 package com.dubbo.user.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.dubbo.user.dao.UserMapper;
@@ -14,6 +15,7 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
+	@Transactional
 	public User getUserById(Long userId) {
 
 		User user = userMapper.selectByPrimaryKey(1L);
