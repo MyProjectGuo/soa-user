@@ -5,7 +5,7 @@
 
 	<groupId>com.dubbo.user</groupId>
 	<artifactId>soa-user</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>soa-user</name>
@@ -115,6 +115,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+     	<!-- https://mvnrepository.com/artifact/com.github.ulisesbocchio/jasypt-spring-boot-starter -->
+		<!-- 整合jasypt对数据库密码加密 -->
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>1.16</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -141,4 +149,16 @@
 	</build>
 
 
+		<distributionManagement>
+		    <repository>
+		        <id>releases</id><!--这个ID需要与你的release仓库的Repository ID一致-->
+		        <url>http://118.24.115.57:8081/nexus/content/repositories/releases/</url>
+		    </repository>
+		    <snapshotRepository>
+		        <id>snapshots</id><!--这个ID需要与你的snapshots仓库的Repository ID一致-->
+		        <url>http://118.24.115.57:8081/nexus/content/repositories/snapshots/</url>
+		    </snapshotRepository>
+		</distributionManagement>
+
 </project>
+>>>>>>> refs/heads/release-gqb-first-0814
