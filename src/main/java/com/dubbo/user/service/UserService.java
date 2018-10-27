@@ -7,4 +7,6 @@ public interface UserService {
 	User getUserById(Long userId);
 
 	User findByUserName(String userName);
+	
+	void sendUserMQ();
 }

@@ -35,5 +35,11 @@ public class UserServiceImplTest {
 		
 		template.opsForValue().set("test1", "321321");
 	}
+	
+	@Test
+	public void testSendMQ(){
+		userServiceImpl.sendUserMQ();
+		
+	}
 
 }

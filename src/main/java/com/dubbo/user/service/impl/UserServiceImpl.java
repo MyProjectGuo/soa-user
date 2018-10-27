@@ -1,9 +1,11 @@
 package com.dubbo.user.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserMapper userMapper;
 
+	@Autowired
+	private AmqpTemplate amqpTemplate;
+
 	@Override
 	@Transactional
 	public User getUserById(Long userId) {
@@ -33,6 +38,12 @@ public class UserServiceImpl implements UserService {
 		example.createCriteria().andMobileEqualTo(userName);
 		List<User> list = userMapper.selectByExample(example);
 		return CollectionUtils.isEmpty(list) ? null : list.get(0);
+	}
+
+	@Override
+	public void sendUserMQ() {
+		String message = "你好：" + new Date();
+		amqpTemplate.convertAndSend("exchange","top.message", message);
 	}
 
 }
