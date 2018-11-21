@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +14,7 @@ import com.dubbo.user.model.User;
 import com.dubbo.user.model.UserExample;
 import com.dubbo.user.service.UserService;
 
-@Service(group = "userService", version = "1.0.0")
+@Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
